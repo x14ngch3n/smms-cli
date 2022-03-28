@@ -24,4 +24,5 @@ optional arguments:
 
 ## Links
 
-* <https://doc.sm.ms/#api>
+* API Docs: <https://doc.sm.ms/#api>
+* My blog: <https://cascadeschen.cn/2022-03-28-smms-cli/>
