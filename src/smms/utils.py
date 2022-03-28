@@ -73,12 +73,12 @@ def getUploadHistory(APIToken: str, ContentType: str = "multipart/form-data") ->
         params = {"page": page}
         r = requests.get(url=endpoint, params=params, headers=headers)
         response = r.json()
-        history.append(response)
+        history.append(response["data"])
         # encounter the last page
         if response["CurrentPage"] == response["TotalPages"]:
             break
-
-    return history
+    # return flattened json, elements are image
+    return [item for sublist in history for item in sublist]
 
 
 def uploadImage(

@@ -38,9 +38,17 @@ class Client:
         response = utils.getUploadHistory(self.APIToken)
         self.betterPrint(response)
 
-    def deleteImage(self, hash):
+    def deleteImage(self, hash: str):
         response = utils.deleteImage(hash)
         self.betterPrint(response)
+
+    def deleteImageByname(self, filename: str):
+        response = utils.getUploadHistory(self.APIToken)
+        for image in response:
+            if image["filename"] == filename.split("/")[-1]:
+                self.deleteImage(image["hash"])
+                exit(0)
+        print("{} has not been uploaded, delete fail!".format(filename))
 
 
 def main():
@@ -53,16 +61,17 @@ def main():
         "method", help="API method: upload | delete | getprofile | gethistory"
     )
     parser.add_argument(
-        "-f", "--filename", help="used with upload, select image to be uploaded"
+        "-f",
+        "--filename",
+        help="used with upload | delete, select image to be uploaded or deleted",
     )
-    parser.add_argument("--hash", help="used with delete, delete image by hash value")
-
     args = parser.parse_args()
+    # handle arguments
     c = Client()
     if args.method == "upload":
         c.uploadImage(args.filename)
     elif args.method == "delete":
-        c.deleteImage(args.hash)
+        c.deleteImageByname(args.filename)
     elif args.method == "getprofile":
         c.getUserProfile()
     elif args.method == "gethistory":
