@@ -20,7 +20,6 @@ optional arguments:
   -h, --help            show this help message and exit
   -f FILENAME, --filename FILENAME
                         used with upload, select image to be uploaded
-  --hash HASH           used with delete, delete image by hash value
 ```
 
 ## Links
