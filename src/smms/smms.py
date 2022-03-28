@@ -1,11 +1,10 @@
-import argparse
-import utils
+from smms import utils
 
 
 class Client:
     def __init__(self):
         try:
-            from apitoken import APIToken
+            from smms.apitoken import APIToken
 
             self.APIToken = APIToken
         except ImportError:
@@ -35,7 +34,25 @@ class Client:
         response = utils.getUserProfile(self.APIToken)
         self.betterPrint(response)
 
+    def getUploadHistory(self):
+        response = utils.getUploadHistory(self.APIToken)
+        self.betterPrint(response)
+
+    def deleteImage(self, hash):
+        response = utils.deleteImage(hash)
+        self.betterPrint(response)
+
+
+def main():
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="A simple command line HTTP client of https://sm.ms"
+    )
+    parser.add_argument("--upload", help="upload image to https://sm.ms")
+    args = parser.parse_args()
+    c = Client()
+
 
 if __name__ == "__main__":
-    c = Client()
-    c.getUserProfile()
+    main()

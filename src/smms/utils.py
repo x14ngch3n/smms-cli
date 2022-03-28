@@ -12,9 +12,8 @@ def getAPIToken(username: str, password: str) -> list:
     r = requests.post(url=endpoint, params=params)
 
     # write token to one file for module test
-    import sys
-
-    tokenfile = sys.path[0] + "/apitoken.py"
+    modulePath = "/".join(__file__.split("/")[:-1])
+    tokenfile = modulePath + "/apitoken.py"
     response = r.json()
     with open(tokenfile, "w") as f:
         content = '{} = "{}"'.format("APIToken", response["data"]["token"])
