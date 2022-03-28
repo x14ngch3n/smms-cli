@@ -1,10 +1,10 @@
-import utils
+from smms import utils
 
 
 class Client:
     def __init__(self):
         try:
-            from apitoken import APIToken
+            from smms.apitoken import APIToken
 
             self.APIToken = APIToken
         except ImportError:
