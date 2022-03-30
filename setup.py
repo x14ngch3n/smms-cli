@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="smms-cascades",
-    version="1.0.2",
+    version="1.0.3",
     author="cascades",
     author_email="cascades@sjtu.edu.cn",
     description="A command line HTTP client to of https://sm.ms",
