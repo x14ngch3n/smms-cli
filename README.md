@@ -9,19 +9,19 @@ A command line HTTP client of <https://sm.ms>
 
 ```python=
 $ smms -h
-usage: smms [-h] [-f FILENAME] [--hash HASH] method
+usage: smms [-h] [-f FILENAME] [-o OUTPUT] method
 
 A simple command line HTTP client of https://sm.ms
 
 positional arguments:
-  method                API method: upload | delete | getprofile | gethistory
+  method                API method: [upload | delete | getprofile | gethistory]
 
 optional arguments:
   -h, --help            show this help message and exit
   -f FILENAME, --filename FILENAME
-                        used with upload, select image to be uploaded
+                        used with [upload | delete], select image to be uploaded or deleted
   -o OUTPUT, --output OUTPUT
-                        used with upload, specify the output format: [json | md | url], json is default
+                        used with upload, specify the output format: [json | md | url], default is json
 ```
 
 ## Links
