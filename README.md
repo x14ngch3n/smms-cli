@@ -20,6 +20,8 @@ optional arguments:
   -h, --help            show this help message and exit
   -f FILENAME, --filename FILENAME
                         used with upload, select image to be uploaded
+  -o OUTPUT, --output OUTPUT
+                        used with upload, specify the output format: [json | md | url], json is default
 ```
 
 ## Links
